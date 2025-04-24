@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import City from "./City";
 import DateBox from "./DateBox";
+import Title from "./Title";
 
 function UpperSec({ onSetCity, cities }) {
   const [timeString, setTimeString] = useState("");
@@ -32,10 +33,13 @@ function UpperSec({ onSetCity, cities }) {
   }, []);
 
   return (
-    <div className="flex gap-3 items-top justify-between w-full px-3 pb-8 border-b-1 border-white">
-      <City onSetCity={onSetCity} cities={cities} />
-      <DateBox title="الوقت" value={timeString} />
-      <DateBox title="التاريخ" value={dateString} />
+    <div className="flex flex-col items-center">
+      <Title />
+      <div className="flex gap-3 items-top justify-between w-full px-3 pb-8 border-b-1 border-white">
+        <City onSetCity={onSetCity} cities={cities} />
+        <DateBox title="الوقت" value={timeString} />
+        <DateBox title="التاريخ" value={dateString} />
+      </div>
     </div>
   );
 }
